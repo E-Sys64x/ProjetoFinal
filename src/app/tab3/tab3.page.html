@@ -1,0 +1,92 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true" class="conteudo">
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="topo">
+    <ion-img class="logo" src="../../assets/Logo.jpg.jfif" alt="" />
+    <p class="marca">Watch Movie's</p>
+
+    
+  </div>
+
+  <h4>
+    Terror
+  </h4>
+
+  <swiper-container slides-per-view="2" speed="500" loop="true" css-mode="true">
+    <swiper-slide *ngFor="let t of terror">
+        <ion-card (click)="setOpen(true, t.imagem, t.titulo, t.descricao, t.categoria, t.imagem)">
+          <img src={{t.imagem}} alt="">
+        </ion-card>
+    </swiper-slide>
+  </swiper-container>
+
+  <h4>
+    Ação
+  </h4>
+
+  <swiper-container slides-per-view="2" speed="500" loop="true" css-mode="true">
+    <swiper-slide *ngFor="let f of filmes">
+        <ion-card (click)="setOpen(true, f.imagem, f.titulo, f.descricao, f.categoria, f.imagem)">
+          <img src={{f.imagem}} alt="">
+        </ion-card>
+    </swiper-slide>
+  </swiper-container>
+
+  <h4>
+    Romance
+  </h4>
+
+  <swiper-container slides-per-view="2" speed="500" loop="true" css-mode="true">
+    <swiper-slide *ngFor="let rom of romance">
+        <ion-card (click)="setOpen(true, rom.imagem, rom.titulo, rom.descricao, rom.categoria, rom.imagem)">
+          <img src={{rom.imagem}} alt="">
+        </ion-card>
+    </swiper-slide>
+  </swiper-container>
+
+  <h4>
+    Ficção Científica
+  </h4>
+
+  <swiper-container slides-per-view="2" speed="500" loop="true" css-mode="true">
+    <swiper-slide *ngFor="let fic of ficcao">
+        <ion-card (click)="setOpen(true, fic.imagem, fic.titulo, fic.descricao, fic.categoria, fic.imagem)">
+          <img src={{fic.imagem}} alt="">
+        </ion-card>
+    </swiper-slide>
+  </swiper-container>
+
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title></ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false, '','','','','')" color="danger">Fechar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <img src={{imagemFilme}}>
+        <p class="tituloImg">
+          {{produto[0].titulo}}
+        </p>
+
+        <p class="descricaoImg">
+          {{produto[0].descricao}}
+        </p>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+    
+</ion-content>
